@@ -1,0 +1,58 @@
+"0","library(tidyverse)"
+"0",""
+"0","#Uplead Data Files"
+"0",""
+"0","#Missouri Series"
+"0","Missouri_G1 <- readr::read_csv(""https://raw.githubusercontent.com/edurler/CPBaseball/main/2-16-24_CalPoly_Missouri_G1.csv"")"
+"2","[1mRows: [22m[34m240[39m [1mColumns: [22m[34m167[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m   (37): Pitcher, PitcherThrows, PitcherTeam, Batter, BatterSide, BatterTeam, PitcherSet, Top/Bottom, TaggedPitchType, AutoPitchType, PitchCall...
+[32mdbl[39m  (118): PitchNo, PAofInning, PitchofPA, PitcherId, BatterId, Inning, Outs, Balls, Strikes, OutsOnPlay, RunsScored, RelSpeed, VertRelAngle, Hor...
+[33mlgl[39m    (5): Notes, MeasuredDuration, PitchLastMeasuredX, PitchLastMeasuredY, PitchLastMeasuredZ
+[34mdttm[39m   (2): LocalDateTime, UTCDateTime
+[34mdate[39m   (2): Date, UTCDate
+[34mtime[39m   (3): Time, Tilt, UTCTime"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","Missouri_G2 <- readr::read_csv(""https://raw.githubusercontent.com/edurler/CPBaseball/main/2-16-24_CalPoly_Missouri_G2.csv"")"
+"2","[1mRows: [22m[34m281[39m [1mColumns: [22m[34m167[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m   (37): Pitcher, PitcherThrows, PitcherTeam, Batter, BatterSide, BatterTeam, PitcherSet, Top/Bottom, TaggedPitchType, AutoPitchType, PitchCall...
+[32mdbl[39m  (118): PitchNo, PAofInning, PitchofPA, PitcherId, BatterId, Inning, Outs, Balls, Strikes, OutsOnPlay, RunsScored, RelSpeed, VertRelAngle, Hor...
+[33mlgl[39m    (5): Notes, MeasuredDuration, PitchLastMeasuredX, PitchLastMeasuredY, PitchLastMeasuredZ
+[34mdttm[39m   (2): LocalDateTime, UTCDateTime
+[34mdate[39m   (2): Date, UTCDate
+[34mtime[39m   (3): Time, Tilt, UTCTime"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","Missouri_G3 <- readr::read_csv(""https://raw.githubusercontent.com/edurler/CPBaseball/main/2-17-24_CalPoly_Missouri.csv"")"
+"2","[1mRows: [22m[34m344[39m [1mColumns: [22m[34m167[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m   (37): Pitcher, PitcherThrows, PitcherTeam, Batter, BatterSide, BatterTeam, PitcherSet, Top/Bottom, TaggedPitchType, AutoPitchType, PitchCall...
+[32mdbl[39m  (118): PitchNo, PAofInning, PitchofPA, PitcherId, BatterId, Inning, Outs, Balls, Strikes, OutsOnPlay, RunsScored, RelSpeed, VertRelAngle, Hor...
+[33mlgl[39m    (5): Notes, MeasuredDuration, PitchLastMeasuredX, PitchLastMeasuredY, PitchLastMeasuredZ
+[34mdttm[39m   (2): LocalDateTime, UTCDateTime
+[34mdate[39m   (2): Date, UTCDate
+[34mtime[39m   (3): Time, Tilt, UTCTime"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","#North Dakota"
+"0","NDSU_G1 <- readr::read_csv(""https://raw.githubusercontent.com/edurler/CPBaseball/main/2-21-24_CalPoly_NDSU.csv"")"
+"2","[1mRows: [22m[34m288[39m [1mColumns: [22m[34m167[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m   (37): Pitcher, PitcherThrows, PitcherTeam, Batter, BatterSide, BatterTeam, PitcherSet, Top/Bottom, TaggedPitchType, AutoPitchType, PitchCall...
+[32mdbl[39m  (118): PitchNo, PAofInning, PitchofPA, PitcherId, BatterId, Inning, Outs, Balls, Strikes, OutsOnPlay, RunsScored, RelSpeed, VertRelAngle, Hor...
+[33mlgl[39m    (5): Notes, MeasuredDuration, PitchLastMeasuredX, PitchLastMeasuredY, PitchLastMeasuredZ
+[34mdttm[39m   (2): LocalDateTime, UTCDateTime
+[34mdate[39m   (2): Date, UTCDate
+[34mtime[39m   (3): Time, Tilt, UTCTime"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."

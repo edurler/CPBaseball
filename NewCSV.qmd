@@ -1,0 +1,33 @@
+---
+title: "Data Upload"
+format: html
+editor: source
+---
+
+## Quarto
+```{r}
+library(tidyverse)
+
+#Uplead Data Files
+
+#Missouri Series
+Missouri_G1 <- readr::read_csv("https://raw.githubusercontent.com/edurler/CPBaseball/main/2-16-24_CalPoly_Missouri_G1.csv")
+Missouri_G2 <- readr::read_csv("https://raw.githubusercontent.com/edurler/CPBaseball/main/2-16-24_CalPoly_Missouri_G2.csv")
+Missouri_G3 <- readr::read_csv("https://raw.githubusercontent.com/edurler/CPBaseball/main/2-17-24_CalPoly_Missouri.csv")
+
+#North Dakota
+NDSU_G1 <- readr::read_csv("https://raw.githubusercontent.com/edurler/CPBaseball/main/2-21-24_CalPoly_NDSU.csv")
+
+```
+
+```{r}
+#Combine to 1 .csv
+combinedData <- rbind(Missouri_G1, Missouri_G2, Missouri_G3, NDSU_G1)
+```
+
+```{r}
+#Create single .csv
+write.csv(combinedData, "combinedData.csv", row.names = FALSE)
+
+```
+

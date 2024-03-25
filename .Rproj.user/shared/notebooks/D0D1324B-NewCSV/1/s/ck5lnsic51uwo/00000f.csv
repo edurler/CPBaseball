@@ -1,0 +1,2 @@
+"0","#Combine to 1 .csv"
+"0","combinedData <- rbind(Missouri_G1, Missouri_G2, Missouri_G3, NDSU_G1)"

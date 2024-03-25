@@ -1,0 +1,72 @@
+---
+title: "Midterm: Open-Ended Analysis"
+author: "Emma Durler"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    code-fold: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+  embed-resources: true
+---
+
+**Load the appropriate libraries and read in the data**
+```{r} 
+#| label: setup
+
+# load libraries
+library(tidyverse)
+library(ggplot2)
+
+# Import data
+everest <- readr::read_csv("https://raw.githubusercontent.com/edurler/midterm/main/everest.csv")
+Missouri_G1 <- readr::read_csv("https://raw.githubusercontent.com/edurler/CPBaseball/main/Missouri_G1.csv")
+
+
+# Cleaned Data
+clean_everest <- everest |>
+  mutate(season = fct_relevel(season, "Winter", "Summer", "Autumn", "Spring"))
+```
+In order to explore how Mt. Everest treks have evolved over time, I analyzed data from The Himalayan Database, which compiles expeditions in the Nepal Himalaya from various sources. This dataset spans from 1905 to the spring of 2019 and includes detailed information on climbs, including those on Mt. Everest. The subset of Everest data I used includes variables for each climb's unique identification, year, season, dates of key milestones like basecamp and highpoint arrivals, termination reasons, highpoint elevation in meters, group size, deaths, oxygen usage, and trekking agency involvement if applicable. My investigation aims to determine whether the season of the climb affects the highpoint reached in meters.
+  
+**Table of Summary Statistics**
+```{r}
+# Calculate summary statistics for each season
+summary_table <- clean_everest %>%
+  group_by(season) %>%
+  summarise(
+    Mean_Highpoint = format(mean(highpoint_metres, na.rm = TRUE), nsmall = 2),
+    Median_Highpoint = format(median(highpoint_metres, na.rm = TRUE), nsmall = 2),
+    Min_Highpoint = format(min(highpoint_metres, na.rm = TRUE), nsmall = 2),
+    Max_Highpoint = format(max(highpoint_metres, na.rm = TRUE), nsmall = 2),
+    Climb_count = n()
+  )
+
+print(summary_table)
+```
+
+This Summary Table shows the mean, median, minimum, and maximum highpoint for each season as well as how many climbs occurred in the specific season. This shows that although each season has the same maximum highpoint and the median highpoint for every season but winter looks roughly similar the averages show a clear distinction. The mean highpoint of spring is almost identical to the maximum highpoint and median highpoint. It also shows that as the temperatures become more tolerable (not colder than usual nor hotter than usual) the mean and median highpoints increase. This could indicate more successful climbs to higher altitudes, we can look at this further in a box plot visualization of this data.
+
+**Data Visualization**
+```{r}
+# Define a color palette with colors that avoid red, blue, and green
+color_palette <- c( "red", "blue", "darkgreen", "#F4B995")
+
+# Plot with custom color palette
+ggplot(data = clean_everest, 
+       mapping = aes(x = season, 
+                     y = highpoint_metres,
+                     color = season)) +
+  geom_boxplot() +
+  scale_color_manual(values = color_palette) +  # Use custom color palette
+  labs(x = "Season", 
+       y = "Highpoint Meters",
+       color = "Season")
+```
+This box plot visualization presents the distribution of highpoint measurements, represented in meters, across different seasons. Each box encapsulates the (IQR), encompassing 50% of the data, with a line indicating the median value. Whiskers extend to the minimum and maximum values within 1.5x the IQR from the lower and upper quartiles, while any data points beyond these whiskers are deemed outliers. Notably, the IQR appears to ascend along the y-axis from Winter to Summer, with Autumn and Spring displaying notably higher IQRs. Spring stands out with a significantly elevated IQR compared to the other seasons, implying a concentration of data points at higher elevations. Despite Spring featuring numerous lower outliers, its higher IQR and minimum values suggest it may offer the most favorable conditions for climbing, followed by Autumn, Winter, and Summer. This trend suggests an association between more tolerable weather conditions and higher highpoint elevations.
